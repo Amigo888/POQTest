@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  POQTest
 //
-//  Created by Дмитрий Процак on 03.07.2024.
+//  Created by Protsak Dmytro on 03.07.2024.
 //
 
 import UIKit
@@ -11,9 +11,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = .red
     }
-
-
 }
-
