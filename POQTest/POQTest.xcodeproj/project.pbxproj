@@ -18,7 +18,20 @@
 		5FC6ACFA2C3542180009B0CA /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACF92C3542180009B0CA /* UITableView+Extensions.swift */; };
 		5FC6AD002C3546FF0009B0CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACFF2C3546FF0009B0CA /* NetworkManager.swift */; };
 		5FC6AD032C354A4E0009B0CA /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6AD022C354A4E0009B0CA /* MainAssembly.swift */; };
+		5FC6AD0B2C357EB80009B0CA /* POQTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6AD0A2C357EB80009B0CA /* POQTestTests.swift */; };
+		5FC6AD132C3580600009B0CA /* MockMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6AD122C3580600009B0CA /* MockMainViewController.swift */; };
+		5FC6AD152C3580810009B0CA /* MockNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6AD142C3580810009B0CA /* MockNetworkManager.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5FC6AD0C2C357EB80009B0CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5FC6ACCB2C3524BD0009B0CA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5FC6ACD22C3524BD0009B0CA;
+			remoteInfo = POQTest;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		5FC6ACD32C3524BD0009B0CA /* POQTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POQTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -34,10 +47,21 @@
 		5FC6ACF92C3542180009B0CA /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
 		5FC6ACFF2C3546FF0009B0CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		5FC6AD022C354A4E0009B0CA /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
+		5FC6AD082C357EB80009B0CA /* POQTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = POQTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FC6AD0A2C357EB80009B0CA /* POQTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = POQTestTests.swift; sourceTree = "<group>"; };
+		5FC6AD122C3580600009B0CA /* MockMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMainViewController.swift; sourceTree = "<group>"; };
+		5FC6AD142C3580810009B0CA /* MockNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5FC6ACD02C3524BD0009B0CA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FC6AD052C357EB80009B0CA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -51,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				5FC6ACD52C3524BD0009B0CA /* POQTest */,
+				5FC6AD092C357EB80009B0CA /* POQTestTests */,
 				5FC6ACD42C3524BD0009B0CA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -59,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				5FC6ACD32C3524BD0009B0CA /* POQTest.app */,
+				5FC6AD082C357EB80009B0CA /* POQTestTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -162,6 +188,24 @@
 			path = Assembly;
 			sourceTree = "<group>";
 		};
+		5FC6AD092C357EB80009B0CA /* POQTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6AD0A2C357EB80009B0CA /* POQTestTests.swift */,
+				5FC6AD112C3580410009B0CA /* Mocks */,
+			);
+			path = POQTestTests;
+			sourceTree = "<group>";
+		};
+		5FC6AD112C3580410009B0CA /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6AD122C3580600009B0CA /* MockMainViewController.swift */,
+				5FC6AD142C3580810009B0CA /* MockNetworkManager.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -184,6 +228,24 @@
 			productReference = 5FC6ACD32C3524BD0009B0CA /* POQTest.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5FC6AD072C357EB80009B0CA /* POQTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5FC6AD0E2C357EB80009B0CA /* Build configuration list for PBXNativeTarget "POQTestTests" */;
+			buildPhases = (
+				5FC6AD042C357EB80009B0CA /* Sources */,
+				5FC6AD052C357EB80009B0CA /* Frameworks */,
+				5FC6AD062C357EB80009B0CA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5FC6AD0D2C357EB80009B0CA /* PBXTargetDependency */,
+			);
+			name = POQTestTests;
+			productName = POQTestTests;
+			productReference = 5FC6AD082C357EB80009B0CA /* POQTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -196,6 +258,10 @@
 				TargetAttributes = {
 					5FC6ACD22C3524BD0009B0CA = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					5FC6AD072C357EB80009B0CA = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = 5FC6ACD22C3524BD0009B0CA;
 					};
 				};
 			};
@@ -215,6 +281,7 @@
 			projectRoot = "";
 			targets = (
 				5FC6ACD22C3524BD0009B0CA /* POQTest */,
+				5FC6AD072C357EB80009B0CA /* POQTestTests */,
 			);
 		};
 /* End PBXProject section */
@@ -226,6 +293,13 @@
 			files = (
 				5FC6ACE02C3524BE0009B0CA /* Assets.xcassets in Resources */,
 				5FC6ACE32C3524BE0009B0CA /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5FC6AD062C357EB80009B0CA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +322,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5FC6AD042C357EB80009B0CA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FC6AD152C3580810009B0CA /* MockNetworkManager.swift in Sources */,
+				5FC6AD0B2C357EB80009B0CA /* POQTestTests.swift in Sources */,
+				5FC6AD132C3580600009B0CA /* MockMainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5FC6AD0D2C357EB80009B0CA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5FC6ACD22C3524BD0009B0CA /* POQTest */;
+			targetProxy = 5FC6AD0C2C357EB80009B0CA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5FC6ACE12C3524BE0009B0CA /* LaunchScreen.storyboard */ = {
@@ -437,6 +529,40 @@
 			};
 			name = Release;
 		};
+		5FC6AD0F2C357EB80009B0CA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.POQTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/POQTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/POQTest";
+			};
+			name = Debug;
+		};
+		5FC6AD102C357EB80009B0CA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.POQTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/POQTest.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/POQTest";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -454,6 +580,15 @@
 			buildConfigurations = (
 				5FC6ACE82C3524BE0009B0CA /* Debug */,
 				5FC6ACE92C3524BE0009B0CA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5FC6AD0E2C357EB80009B0CA /* Build configuration list for PBXNativeTarget "POQTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FC6AD0F2C357EB80009B0CA /* Debug */,
+				5FC6AD102C357EB80009B0CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
