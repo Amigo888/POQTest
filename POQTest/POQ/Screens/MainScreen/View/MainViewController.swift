@@ -8,7 +8,6 @@
 import UIKit
 
 protocol MainViewControllerProtocol: AnyObject {
-    
     func updateView(with gitRepos: [RepositoryModel])
     func showErrorAlert(message: String)
 }
@@ -17,8 +16,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - Constants
     
-    private enum Constansts {
-        
+    private enum Constants {
         enum Text {
             static let noDescriptionAvailable: String = "No description available"
             static let errorTitle: String = "Error"
@@ -44,25 +42,32 @@ final class MainViewController: UIViewController {
         return indicator
     }()
     
+    private lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        return refreshControl
+    }()
+    
     // MARK: - Private Properties
     
     private var presenter: MainPresenterProtocol?
-    private var gitRepos: [RepositoryModel] = [RepositoryModel]()
+    private var gitRepos: [RepositoryModel] = []
     
-    // MARK: - ViewDidLoad
+    // MARK: - View Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubViews()
+        addSubviews()
         setupConstraints()
         setupTableView()
         setupViewWithData()
+        setupRefreshControl()
         activityIndicator(isShow: true)
     }
     
     // MARK: - Private Methods
     
-    private func addSubViews() {
+    private func addSubviews() {
         view.addSubview(tableView)
         view.addSubview(activityIndicator)
     }
@@ -84,10 +89,16 @@ final class MainViewController: UIViewController {
     private func setupTableView() {
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.addSubview(refreshControl)
     }
     
     private func setupViewWithData() {
         presenter?.fetchGitRepos()
+    }
+    
+    private func setupRefreshControl() {
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+        tableView.refreshControl = refreshControl
     }
     
     private func activityIndicator(isShow: Bool) {
@@ -98,6 +109,12 @@ final class MainViewController: UIViewController {
     
     func set(presenter: MainPresenterProtocol) {
         self.presenter = presenter
+    }
+    
+    // MARK: - Action Methods
+    
+    @objc private func refreshData(_ sender: UIRefreshControl) {
+        presenter?.fetchGitRepos()
     }
 }
 
@@ -110,20 +127,22 @@ extension MainViewController: MainViewControllerProtocol {
         
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            self.refreshControl.endRefreshing()
             self.activityIndicator(isShow: false)
         }
     }
     
     func showErrorAlert(message: String) {
         DispatchQueue.main.async {
-            let alert = UIAlertController(title: Constansts.Text.errorTitle, message: message, preferredStyle: .alert)
-            let retryAction = UIAlertAction(title: Constansts.Text.errorActionTitle, style: .default) { [weak self] _ in
-                guard let self else { return }
-                activityIndicator(isShow: true)
-                presenter?.fetchGitRepos()
+            let alert = UIAlertController(title: Constants.Text.errorTitle, message: message, preferredStyle: .alert)
+            let retryAction = UIAlertAction(title: Constants.Text.errorActionTitle, style: .default) { [weak self] _ in
+                guard let self = self else { return }
+                self.activityIndicator(isShow: true)
+                self.presenter?.fetchGitRepos()
             }
             alert.addAction(retryAction)
             self.present(alert, animated: true, completion: nil)
+            self.refreshControl.endRefreshing()
         }
     }
 }
@@ -141,7 +160,7 @@ extension MainViewController: UITableViewDataSource {
         let gitRepo = gitRepos[indexPath.row]
         cell.configure(
             title: gitRepo.name,
-            subtitle: gitRepo.description ?? Constansts.Text.noDescriptionAvailable
+            subtitle: gitRepo.description ?? Constants.Text.noDescriptionAvailable
         )
         return cell
     }
