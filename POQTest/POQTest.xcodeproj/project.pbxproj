@@ -9,20 +9,31 @@
 /* Begin PBXBuildFile section */
 		5FC6ACD72C3524BD0009B0CA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACD62C3524BD0009B0CA /* AppDelegate.swift */; };
 		5FC6ACD92C3524BD0009B0CA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACD82C3524BD0009B0CA /* SceneDelegate.swift */; };
-		5FC6ACDB2C3524BD0009B0CA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACDA2C3524BD0009B0CA /* ViewController.swift */; };
+		5FC6ACDB2C3524BD0009B0CA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACDA2C3524BD0009B0CA /* MainViewController.swift */; };
 		5FC6ACE02C3524BE0009B0CA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FC6ACDF2C3524BE0009B0CA /* Assets.xcassets */; };
 		5FC6ACE32C3524BE0009B0CA /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 5FC6ACE22C3524BE0009B0CA /* Base */; };
-		5FC6ACEC2C3527EE0009B0CA /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FC6ACEB2C3527EE0009B0CA /* SnapKit */; };
+		5FC6ACF02C3533000009B0CA /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACEF2C3533000009B0CA /* CustomTableViewCell.swift */; };
+		5FC6ACF42C353CEC0009B0CA /* MainPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACF32C353CEC0009B0CA /* MainPresenter.swift */; };
+		5FC6ACF72C353D1A0009B0CA /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACF62C353D1A0009B0CA /* MainModel.swift */; };
+		5FC6ACFA2C3542180009B0CA /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACF92C3542180009B0CA /* UITableView+Extensions.swift */; };
+		5FC6AD002C3546FF0009B0CA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6ACFF2C3546FF0009B0CA /* NetworkManager.swift */; };
+		5FC6AD032C354A4E0009B0CA /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC6AD022C354A4E0009B0CA /* MainAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5FC6ACD32C3524BD0009B0CA /* POQTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = POQTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FC6ACD62C3524BD0009B0CA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FC6ACD82C3524BD0009B0CA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5FC6ACDA2C3524BD0009B0CA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5FC6ACDA2C3524BD0009B0CA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5FC6ACDF2C3524BE0009B0CA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FC6ACE22C3524BE0009B0CA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FC6ACE42C3524BE0009B0CA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FC6ACEF2C3533000009B0CA /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		5FC6ACF32C353CEC0009B0CA /* MainPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPresenter.swift; sourceTree = "<group>"; };
+		5FC6ACF62C353D1A0009B0CA /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		5FC6ACF92C3542180009B0CA /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		5FC6ACFF2C3546FF0009B0CA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		5FC6AD022C354A4E0009B0CA /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,7 +41,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FC6ACEC2C3527EE0009B0CA /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,7 +66,9 @@
 		5FC6ACD52C3524BD0009B0CA /* POQTest */ = {
 			isa = PBXGroup;
 			children = (
-				5FC6ACEE2C352B950009B0CA /* Source */,
+				5FC6ACFE2C3546D50009B0CA /* Managers */,
+				5FC6ACF82C3541F80009B0CA /* Extensions */,
+				5FC6ACEE2C352B950009B0CA /* Screens */,
 				5FC6ACED2C35283D0009B0CA /* Application */,
 			);
 			path = POQTest;
@@ -74,12 +86,80 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
-		5FC6ACEE2C352B950009B0CA /* Source */ = {
+		5FC6ACEE2C352B950009B0CA /* Screens */ = {
 			isa = PBXGroup;
 			children = (
-				5FC6ACDA2C3524BD0009B0CA /* ViewController.swift */,
+				5FC6ACF12C353CB70009B0CA /* MainScreen */,
 			);
-			path = Source;
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		5FC6ACF12C353CB70009B0CA /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6AD012C354A260009B0CA /* Assembly */,
+				5FC6ACFD2C3544A60009B0CA /* Model */,
+				5FC6ACFB2C3544670009B0CA /* View */,
+				5FC6ACFC2C3544810009B0CA /* Presenter */,
+			);
+			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		5FC6ACF52C353CF60009B0CA /* CustomTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6ACEF2C3533000009B0CA /* CustomTableViewCell.swift */,
+			);
+			path = CustomTableViewCell;
+			sourceTree = "<group>";
+		};
+		5FC6ACF82C3541F80009B0CA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6ACF92C3542180009B0CA /* UITableView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5FC6ACFB2C3544670009B0CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6ACF52C353CF60009B0CA /* CustomTableViewCell */,
+				5FC6ACDA2C3524BD0009B0CA /* MainViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5FC6ACFC2C3544810009B0CA /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6ACF32C353CEC0009B0CA /* MainPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		5FC6ACFD2C3544A60009B0CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6ACF62C353D1A0009B0CA /* MainModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5FC6ACFE2C3546D50009B0CA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6ACFF2C3546FF0009B0CA /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		5FC6AD012C354A260009B0CA /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				5FC6AD022C354A4E0009B0CA /* MainAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,7 +179,6 @@
 			);
 			name = POQTest;
 			packageProductDependencies = (
-				5FC6ACEB2C3527EE0009B0CA /* SnapKit */,
 			);
 			productName = POQTest;
 			productReference = 5FC6ACD32C3524BD0009B0CA /* POQTest.app */;
@@ -130,7 +209,6 @@
 			);
 			mainGroup = 5FC6ACCA2C3524BD0009B0CA;
 			packageReferences = (
-				5FC6ACEA2C3527EE0009B0CA /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 5FC6ACD42C3524BD0009B0CA /* Products */;
 			projectDirPath = "";
@@ -158,9 +236,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FC6ACDB2C3524BD0009B0CA /* ViewController.swift in Sources */,
+				5FC6ACDB2C3524BD0009B0CA /* MainViewController.swift in Sources */,
+				5FC6AD032C354A4E0009B0CA /* MainAssembly.swift in Sources */,
+				5FC6ACFA2C3542180009B0CA /* UITableView+Extensions.swift in Sources */,
 				5FC6ACD72C3524BD0009B0CA /* AppDelegate.swift in Sources */,
+				5FC6ACF42C353CEC0009B0CA /* MainPresenter.swift in Sources */,
+				5FC6ACF02C3533000009B0CA /* CustomTableViewCell.swift in Sources */,
 				5FC6ACD92C3524BD0009B0CA /* SceneDelegate.swift in Sources */,
+				5FC6ACF72C353D1A0009B0CA /* MainModel.swift in Sources */,
+				5FC6AD002C3546FF0009B0CA /* NetworkManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,25 +459,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5FC6ACEA2C3527EE0009B0CA /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.7.1;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5FC6ACEB2C3527EE0009B0CA /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5FC6ACEA2C3527EE0009B0CA /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FC6ACCB2C3524BD0009B0CA /* Project object */;
 }
