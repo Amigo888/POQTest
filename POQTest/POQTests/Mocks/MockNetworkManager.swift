@@ -1,12 +1,12 @@
 //
 //  MockNetworkManager.swift
-//  POQTestTests
+//  POQTests
 //
-//  Created by Дмитрий Процак on 03.07.2024.
+//  Created by Protsak Dmytro on 03.07.2024.
 //
 
 import Foundation
-@testable import POQTest
+@testable import POQ
 
 class MockNetworkManager: NetworkManagerProtocol {
     var shouldReturnError = false
@@ -24,3 +24,4 @@ class MockNetworkManager: NetworkManagerProtocol {
         }
     }
 }
+

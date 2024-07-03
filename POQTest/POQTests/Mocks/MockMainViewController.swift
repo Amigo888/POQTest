@@ -1,12 +1,12 @@
 //
 //  MockMainViewController.swift
-//  POQTestTests
+//  POQTests
 //
 //  Created by Protsak Dmytro on 03.07.2024.
 //
 
 import Foundation
-@testable import POQTest
+@testable import POQ
 
 class MockMainViewController: MainViewControllerProtocol {
     var gitRepos: [RepositoryModel] = []
@@ -20,3 +20,4 @@ class MockMainViewController: MainViewControllerProtocol {
         self.errorMessage = message
     }
 }
+

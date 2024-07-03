@@ -1,14 +1,14 @@
 //
-//  POQTestTests.swift
-//  POQTestTests
+//  POQTests.swift
+//  POQTests
 //
 //  Created by Protsak Dmytro on 03.07.2024.
 //
 
 import XCTest
-@testable import POQTest
+@testable import POQ
 
-final class POQTestTests: XCTestCase {
+final class POQTests: XCTestCase {
     
     var presenter: MainPresenter!
     var mockViewController: MockMainViewController!
