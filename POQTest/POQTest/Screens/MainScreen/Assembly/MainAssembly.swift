@@ -17,11 +17,11 @@ final class MainAssembly: Presentable {
     // MARK: - Methods
     
     func toPresent() -> UIViewController {
-        let apiCaller = NetworkManager()
+        let networkManager = NetworkManager()
         let viewController = MainViewController()
         let presenter = MainPresenter(
             viewController: viewController,
-            apiCaller: apiCaller
+            networkManager: networkManager
         )
         viewController.set(presenter: presenter)
         return viewController

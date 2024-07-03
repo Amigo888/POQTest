@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SnapKit
 
 protocol MainViewControllerProtocol: AnyObject {
     
@@ -15,6 +14,19 @@ protocol MainViewControllerProtocol: AnyObject {
 }
 
 final class MainViewController: UIViewController {
+    
+    // MARK: - Constants
+    
+    private enum Constansts {
+        
+        enum Text {
+            static let noDescriptionAvailable: String = "No description available"
+            static let errorTitle: String = "Error"
+            static let errorActionTitle: String = "Retry"
+        }
+    }
+    
+    // MARK: - Components
     
     private let tableView: UITableView = {
         let tableView = UITableView()
@@ -32,8 +44,12 @@ final class MainViewController: UIViewController {
         return indicator
     }()
     
+    // MARK: - Private Properties
+    
     private var presenter: MainPresenterProtocol?
     private var gitRepos: [RepositoryModel] = [RepositoryModel]()
+    
+    // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +59,8 @@ final class MainViewController: UIViewController {
         setupViewWithData()
         activityIndicator(isShow: true)
     }
+    
+    // MARK: - Private Methods
     
     private func addSubViews() {
         view.addSubview(tableView)
@@ -65,6 +83,7 @@ final class MainViewController: UIViewController {
     
     private func setupTableView() {
         tableView.dataSource = self
+        tableView.delegate = self
     }
     
     private func setupViewWithData() {
@@ -96,7 +115,16 @@ extension MainViewController: MainViewControllerProtocol {
     }
     
     func showErrorAlert(message: String) {
-        print("Alert")
+        DispatchQueue.main.async {
+            let alert = UIAlertController(title: Constansts.Text.errorTitle, message: message, preferredStyle: .alert)
+            let retryAction = UIAlertAction(title: Constansts.Text.errorActionTitle, style: .default) { [weak self] _ in
+                guard let self else { return }
+                activityIndicator(isShow: true)
+                presenter?.fetchGitRepos()
+            }
+            alert.addAction(retryAction)
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 }
 
@@ -111,7 +139,19 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(CustomTableViewCell.self)
         let gitRepo = gitRepos[indexPath.row]
-        cell.configure(title: gitRepo.name, subtitle: gitRepo.description ?? "No Info")
+        cell.configure(
+            title: gitRepo.name,
+            subtitle: gitRepo.description ?? Constansts.Text.noDescriptionAvailable
+        )
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension MainViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

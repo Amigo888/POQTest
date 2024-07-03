@@ -7,18 +7,41 @@
 
 import Foundation
 
+// MARK: - CustomError
+
 enum CustomError: Error {
     case invalidURL
     case invalidData
+    case general
+    
+    var description: String {
+        switch self {
+            case .invalidURL:
+                "Invalid URL"
+            case .invalidData:
+                "Invalid Data"
+            case .general:
+                "Something went wrong"
+        }
+    }
 }
 
 protocol NetworkManagerProtocol {
-    func makeRequest<T: Decodable>(with url: URL?, expecting: T.Type ,completion: @escaping(Result<T, Error>) -> Void)
+    
+    func makeRequest<T: Decodable>(
+        with url: URL?,
+        expecting: T.Type ,
+        completion: @escaping(Result<T, CustomError>) -> Void
+    )
 }
 
 final class NetworkManager: NetworkManagerProtocol {
     
-    func makeRequest<T: Decodable>(with url: URL?, expecting: T.Type ,completion: @escaping(Result<T, Error>) -> Void) {
+    func makeRequest<T: Decodable>(
+        with url: URL?,
+        expecting: T.Type,
+        completion: @escaping(Result<T, CustomError>) -> Void
+    ) {
         guard let url = url else {
             return completion(.failure(CustomError.invalidURL))
         }
@@ -30,7 +53,7 @@ final class NetworkManager: NetworkManagerProtocol {
                 let result = try JSONDecoder().decode(expecting, from: data)
                 completion(.success(result))
             } catch {
-                completion(.failure(error))
+                completion(.failure(CustomError.general))
             }
         }
         task.resume()

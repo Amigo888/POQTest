@@ -9,12 +9,14 @@ import UIKit
 
 final class CustomTableViewCell: UITableViewCell {
     
+    // MARK: - Components
+    
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
         label.textColor = .black
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         return label
     }()
     
@@ -23,7 +25,7 @@ final class CustomTableViewCell: UITableViewCell {
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .darkGray
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 0
+        label.numberOfLines = .zero
         return label
     }()
     
@@ -36,17 +38,20 @@ final class CustomTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    // MARK: - Lifecycle
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
         setupConstraints()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupViews()
-        setupConstraints()
+        fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - Private Methods
     
     private func setupViews() {
         stackView.addArrangedSubview(titleLabel)
@@ -62,6 +67,8 @@ final class CustomTableViewCell: UITableViewCell {
             stackView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8)
         ])
     }
+    
+    // MARK: - Cell Configure
     
     func configure(title: String, subtitle: String) {
         titleLabel.text = title

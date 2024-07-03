@@ -14,38 +14,42 @@ protocol MainPresenterProtocol: AnyObject {
 
 final class MainPresenter: MainPresenterProtocol {
     
+    // MARK: - Cosntants
+    
     private enum Constansts {
+        
         static let url: String = "https://api.github.com/orgs/square/repos"
     }
     
     // MARK: - Private properties
     
     private weak var viewController: MainViewControllerProtocol?
-    private var apiCaller: NetworkManagerProtocol
+    private var networkManager: NetworkManagerProtocol
     
     // MARK: - Initializer
     
     init(
         viewController: MainViewControllerProtocol,
-        apiCaller: NetworkManagerProtocol
+        networkManager: NetworkManagerProtocol
     ) {
         self.viewController = viewController
-        self.apiCaller = apiCaller
+        self.networkManager = networkManager
     }
     
+    // MARK: - Methods
+    
     func fetchGitRepos() {
-        
         let url = URL(string: Constansts.url)
         
-        apiCaller.makeRequest(
+        networkManager.makeRequest(
             with: url,
             expecting: [RepositoryModel].self) { [weak self] result in
                 guard let self else { return }
                 switch result {
                     case .success(let gitRepos):
                         viewController?.updateView(with: gitRepos)
-                    case .failure(let failure):
-                        viewController?.showErrorAlert(message: failure.localizedDescription)
+                    case .failure(let error):
+                        viewController?.showErrorAlert(message: error.description)
                 }
             }
     }
